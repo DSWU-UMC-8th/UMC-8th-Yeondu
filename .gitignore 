@@ -1,0 +1,34 @@
+# Xcode 프로젝트 관련 파일
+DerivedData/
+*.xcworkspace
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# 빌드 결과물 제외
+build/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# macOS 시스템 파일 (Finder, Spotlight, System files)
+.DS_Store
+*.swp
+*.lock
+
+# Swift Package Manager 관련
+.build/
+.swiftpm/
+
+# CocoaPods 관련
+Pods/
+Podfile.lock
+
+# Carthage 관련
+Carthage/
+
+# Fastlane 관련 (빌드 자동화 툴)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
