@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Bindable var loginModel: LoginModel = .init()
+    
     var body: some View {
         VStack{
             Spacer().frame(height: 104)
@@ -46,17 +48,19 @@ struct LoginView: View {
     //로그인
     private var MainLoginGroup: some View{
         VStack(alignment:.leading){
-            Text("아이디")
+            TextField("아이디", text: $loginModel.id)
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
+                .textInputAutocapitalization(.never) // 첫 글자 대문자 방지
             
             Divider()
                 .foregroundStyle(Color(.gray00))
             
             Spacer().frame(height: 47)
-            Text("비밀번호")
+            TextField("비밀번호", text: $loginModel.password)
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
+                .textInputAutocapitalization(.never) // 첫 글자 대문자 방지g
 
             Divider()
                 .foregroundStyle(Color(.gray00))
