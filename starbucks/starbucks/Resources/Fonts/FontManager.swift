@@ -34,7 +34,7 @@ extension Font{
                     }
                 }
             }
-            
+    
            static func pretend(type: Pretendard, size:CGFloat) -> Font {
                 return .custom(type.value, size: size)
             }
@@ -109,3 +109,4 @@ extension Font{
             }
             
         }
+
