@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import Observation
 
 struct LoginView: View {
-    @Bindable var loginModel: LoginModel = .init()
+    @StateObject var loginModel = LoginModel()
+    @FocusState private var isInputFocused: Field?
+    
+    enum Field {
+        case id
+        case password
+    }
     
     var body: some View {
         VStack{
@@ -52,18 +59,20 @@ struct LoginView: View {
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
                 .textInputAutocapitalization(.never) // 첫 글자 대문자 방지
+                .focused($isInputFocused, equals: .id)
             
             Divider()
-                .foregroundStyle(Color(.gray00))
+                .background(isInputFocused == .id ? Color(.green00) : Color(.gray00))
             
             Spacer().frame(height: 47)
             TextField("비밀번호", text: $loginModel.password)
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
-                .textInputAutocapitalization(.never) // 첫 글자 대문자 방지g
-
+                .textInputAutocapitalization(.never) // 첫 글자 대문자 방지
+                .focused($isInputFocused, equals: .password)
+            
             Divider()
-                .foregroundStyle(Color(.gray00))
+                .background(isInputFocused == .password ? Color(.green00) : Color(.gray00))
             
             Button(action: {
                 print("버튼을 클릭했습니다")
