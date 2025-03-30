@@ -31,7 +31,9 @@ struct LoginView: View {
             Spacer().frame(height: 28)
             
             Text("안녕하세요.")
+                .font(.mainTextExtraBold24)
             Text("스타벅스입니다.")
+                .font(.mainTextExtraBold24)
             
             Spacer().frame(height: 19)
             
@@ -41,26 +43,30 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
     //로그인
     private var MainLoginGroup: some View{
         VStack(alignment:.leading){
             Text("아이디")
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
+            
             Divider()
                 .foregroundStyle(Color(.gray00))
+            
             Spacer().frame(height: 47)
             Text("비밀번호")
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
+
             Divider()
                 .foregroundStyle(Color(.gray00))
+            
             Button(action: {
                 print("버튼을 클릭했습니다")
             }, label: {
                 Text("로그인하기")
                     .foregroundColor(.white)
+                    .font(.mainTextMedium16)
             })
             .frame(maxWidth: .infinity)
             .padding(.vertical, 13.5)
