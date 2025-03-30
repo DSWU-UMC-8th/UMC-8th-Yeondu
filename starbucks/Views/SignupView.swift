@@ -21,13 +21,13 @@ struct SignupView: View {
         VStack{
             UserTextFieldGroup
             
-            Spacer().frame(height:screenSize.height/2-50)
+            Spacer()
             
             GreenButton(name:"생성하기",action: viewModel.signupButton)
             
         }
-        .padding(.top, (screenSize.height/2+196)*0.6)
-        .padding(.bottom,(screenSize.height/2+196)*0.4)
+        .padding(.top,210)
+        .padding(.bottom,72)
         .padding(.horizontal,19)
     }
     

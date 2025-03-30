@@ -19,8 +19,8 @@ struct GreenButton: View {
                 .foregroundColor(.white)
                 .font(.mainTextMedium16)
         })
-        .frame(maxWidth: .infinity, maxHeight: 58)
-        .padding(.vertical, 13.5)
+        .frame(maxWidth: .infinity,maxHeight: 58)
+        //.padding(.vertical, 13.5)
         .background(Color(.green01))
         .cornerRadius(20)
     }
