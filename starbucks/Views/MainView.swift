@@ -8,25 +8,46 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedTab = 0
+    
     var body: some View {
-        TabView{
-            Tab("Home",image: "HomeIconGray"){
-                HomeView()
-            }
-            Tab("Pay",image: "PayIconGray"){
-                PayView()
-            }
-            Tab("Order",image: "OrderIconGray"){
-                OrderView()
-            }
-            Tab("Shop",image: "ShopIconGray"){
-                ShopView()
-            }
-            Tab("Other",image: "OtherIconGray"){
-                OtherView()
-            }
+        TabView(selection : $selectedTab){
+            HomeView()
+                .tabItem {
+                    Image(selectedTab == 0 ? "HomeIconGreen" : "HomeIconGray")
+                    Text("Home")
+                }
+                .tag(0)
+            
+            PayView()
+                .tabItem {
+                    Image(selectedTab == 1 ? "PayIconGreen" : "PayIconGray")
+                    Text("Pay")
+                }
+                .tag(1)
+            
+            OrderView()
+                .tabItem {
+                    Image(selectedTab == 2 ? "OrderIconGreen" : "OrderIconGray")
+                    Text("Order")
+                }
+                .tag(2)
+            
+            ShopView()
+                .tabItem {
+                    Image(selectedTab == 3 ? "ShopIconGreen" : "ShopIconGray")
+                    Text("Shop")
+                }
+                .tag(3)
+            
+            OtherView()
+                .tabItem {
+                    Image(selectedTab == 4 ? "OtherIconGreen" : "OtherIconGray")
+                    Text("Other")
+                }
+                .tag(4)
         }
-        .accentColor(Color(.green02))
+        .accentColor(Color("green02"))
     }
 }
 

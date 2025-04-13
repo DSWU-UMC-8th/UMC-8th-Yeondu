@@ -57,7 +57,7 @@ struct LoginView: View {
         VStack(alignment:.leading){
             TextField("아이디", text: $loginModel.id)
                 .font(.mainTextRegular13)
-                .foregroundStyle(Color(.black01))
+                .foregroundStyle(Color(.black02))
                 .textInputAutocapitalization(.never) // 첫 글자 대문자 방지
                 .focused($isInputFocused, equals: .id)
             
