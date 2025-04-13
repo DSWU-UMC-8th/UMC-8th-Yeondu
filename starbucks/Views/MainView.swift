@@ -10,6 +10,10 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedTab = 0
     
+    init() {
+    UITabBar.appearance().backgroundColor = UIColor.white
+    }
+    
     var body: some View {
         TabView(selection : $selectedTab){
             HomeView()
