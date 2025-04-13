@@ -6,8 +6,17 @@
 //
 
 import SwiftUI
+import Observation
 
 struct LoginView: View {
+    @StateObject var loginModel = LoginModel()
+    @FocusState private var isInputFocused: Field?
+    
+    enum Field {
+        case id
+        case password
+    }
+    
     var body: some View {
         VStack{
             Spacer().frame(height: 104)
@@ -38,22 +47,33 @@ struct LoginView: View {
             Spacer().frame(height: 19)
             
             Text("회원 서비스 이용을 위해 로그인 해주세요.")
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color(.gray01))
                 .font(.mainTextMedium16)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
     //로그인
     private var MainLoginGroup: some View{
         VStack(alignment:.leading){
-            Text("아이디")
+            TextField("아이디", text: $loginModel.id)
                 .font(.mainTextRegular13)
+                .foregroundStyle(Color(.black02))
+                .textInputAutocapitalization(.never) // 첫 글자 대문자 방지
+                .focused($isInputFocused, equals: .id)
+            
             Divider()
+                .background(isInputFocused == .id ? Color(.green00) : Color(.gray00))
+            
             Spacer().frame(height: 47)
-            Text("비밀번호")
+            TextField("비밀번호", text: $loginModel.password)
                 .font(.mainTextRegular13)
+                .foregroundStyle(Color(.black01))
+                .textInputAutocapitalization(.never) // 첫 글자 대문자 방지
+                .focused($isInputFocused, equals: .password)
+            
             Divider()
+                .background(isInputFocused == .password ? Color(.green00) : Color(.gray00))
+            
             Button(action: {
                 print("버튼을 클릭했습니다")
             }, label: {
@@ -63,17 +83,17 @@ struct LoginView: View {
             })
             .frame(maxWidth: .infinity)
             .padding(.vertical, 13.5)
-            .background(Color(red: 1/255, green: 168/255, blue: 98/255))
+            .background(Color(.green01))
             .cornerRadius(20)
         }
     }
-    
+                        
     // 하단 로그인
     private var BottomLoginGroup: some View{
         VStack{
             Text("이메일로 회원가입하기")
                 .underline()
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color(.gray04))
                 .font(.mainTextRegular12)
             Image(.kakaoLogin)
             Spacer().frame(height: 19)

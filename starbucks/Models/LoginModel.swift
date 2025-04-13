@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct LoginModel{
-    var id: String
-    var password: String
+@Observable
+class LoginModel: ObservableObject{
+    var id: String = ""
+    var password: String = ""
 }
