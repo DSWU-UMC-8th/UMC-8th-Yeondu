@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "SotreInfoIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
